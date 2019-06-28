@@ -9,7 +9,7 @@ if(mysqli_query($db,$sql_insert)){
 header("Location: recordview.php");
 }
 else{
-	echo "Error: RECORD was not inserted!!!!<br>";
-	echo "<button>Go to Home</button>"
+	echo "Error: ".mysqli_error($db)."<br>RECORD was not inserted!!!!<br>";
+	echo "<button ><a href=\"index.php\">Go to Home</a></button>";
 }
 ?>

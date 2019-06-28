@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>NEW RECORDS</title>
+	<title>Record Management System</title>
 	<?php include 'include/link.html'?>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -60,7 +60,7 @@
   							<div class="input-group-prepend">
   								<div class="input-group-text"><b>Date of P.O.</b> </div>
   							</div>
-  							<input type="date" name="po_date" class="form-control" placeholder="Enter Date" min='2018-01-01' max="<?php echo date('Y-m-d');?>" required>
+  							<input type="date" name="po_date" class="form-control" placeholder="dd-mm-yyyy" min='2018-01-01' max="<?php echo date('Y-m-d');?>" required>
   						</div>
   					</div>
   				</div>
