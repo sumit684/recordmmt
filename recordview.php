@@ -66,29 +66,55 @@ $stages_name =array(
 				</div>
 
 				<div class="panel-group" id="accordion">
-			
+
 					<?php foreach($stages_name as $key=>$value){
-					?>
+						?>
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$stages[$key]?>">
-									<?php echo $value?></a>
-								</h4>
-							</div>
-							<div id="<?php echo $stages[$key]?>" class="panel-collapse collapse <?php if($key==1){echo 'in';}?>">
-								<div class="panel-body">
-									<button class="btn btn-primary" name="<?php echo $stages[$key]?>">+ Add file</button>
+									<a data-toggle="collapse" data-parent="#accordion" href="<?php echo '#'.$stages[$key]?>">
+										<?php echo $value?></a>
+									</h4>
+								</div>
+								<div id="<?php echo $stages[$key]?>" class="panel-collapse collapse <?php if($key==1){echo 'in';}?>">
+									<div class="panel-body">
+										
+										<button type="button" class="btn btn-info" data-toggle="modal" data-target="<?php echo '#'.$stages[$key].'_'.$key?>">+ Add File</button>
 
+										<!-- Modal -->
+										<div id="<?php echo $stages[$key].'_'.$key?>" class="modal fade" role="dialog">
+											<div class="modal-dialog">
+
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title">File upload form</h4>
+													</div>
+													<div class="modal-body">
+														<!-- Form -->
+														<form method='post' action='' enctype="multipart/form-data">
+															Select file : <input type='file' name='file[]' id='file' class='form-control' multiple><br>
+															<input type='button' class='btn btn-info' value='Upload' id='upload'>
+														</form>
+
+														<!-- Preview-->
+														<div id='preview'></div>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					<?php }?>
+						<?php }?>
 
-			<button class="btn btn-primary" onclick="document.location.href='index.php'" style="margin: auto; display: block; margin-bottom: 20px; margin-top: 20px;"> GO TO HOME PAGE</button>
-		</div>
+						<button class="btn btn-primary" onclick="document.location.href='index.php'" style="margin: auto; display: block; margin-bottom: 20px; margin-top: 20px;"> GO TO HOME PAGE</button>
+					</div>
 
-	</div>
-</body>
-</html>
+				</div>
+			</body>
+			</html>
 
