@@ -2,18 +2,19 @@
 <?php
 require 'config.php';
 define(RECORD_PATH, "uploads/records/");
+
 $stages = array(
-	'1' => 'PO_SCAN_COPY',
-	'2' => 'PRODUCTION_RECORD',
-	'3' => 'ROUTINE_TEST_REPORT',
-	'4' => 'CALL_LETTER',
-	'5' => 'SAMPLING_PLAN',
-	'6' => 'ACCEPTANCE_TEST_REPORT',
-	'7' => 'DIRECTOR_CHECK_REPORT',
-	'8' => 'INSPECTION_CLEARANCE_CERTIFICATE',
-	'9' => 'FINAL PACKING LIST',
-	'10'=> 'INVOICE',
-	'11'=> 'CHALLAN'
+	'1' => '1_PO_SCAN_COPY',
+	'2' => '2_PRODUCTION_RECORD',
+	'3' => '3_ROUTINE_TEST_REPORT',
+	'4' => '4_CALL_LETTER',
+	'5' => '5_SAMPLING_PLAN',
+	'6' => '6_ACCEPTANCE_TEST_REPORT',
+	'7' => '7_DIRECTOR_CHECK_REPORT',
+	'8' => '8_INSPECTION_CLEARANCE_CERTIFICATE',
+	'9' => '9_FINAL PACKING LIST',
+	'10'=> '10_INVOICE',
+	'11'=> '11_CHALLAN'
 );
 $po_date = $_SESSION['po_date'];
 $po_number =$_SESSION['po_number'];

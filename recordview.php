@@ -5,7 +5,32 @@ global $po_number;
 global $po_date;
 $po_date = $_SESSION['po_date'];
 $po_number =$_SESSION['po_number'];
-
+$stages = array(
+	'1' => '1_PO_SCAN_COPY',
+	'2' => '2_PRODUCTION_RECORD',
+	'3' => '3_ROUTINE_TEST_REPORT',
+	'4' => '4_CALL_LETTER',
+	'5' => '5_SAMPLING_PLAN',
+	'6' => '6_ACCEPTANCE_TEST_REPORT',
+	'7' => '7_DIRECTOR_CHECK_REPORT',
+	'8' => '8_INSPECTION_CLEARANCE_CERTIFICATE',
+	'9' => '9_FINAL_PACKING_LIST',
+	'10'=> '10_INVOICE',
+	'11'=> '11_CHALLAN'
+);
+$stages_name =array(
+	'1' => 'PURCHASE ORDER SCAN COPY',
+	'2' => 'PRODUCTION RECORD (INPROCESS)',
+	'3' => 'ROUTINE TEST REPORT',
+	'4' => 'CALL LETTER',
+	'5' => 'SAMPLING PLAN',
+	'6' => 'ACCEPTANCE TEST REPORT',
+	'7' => 'DIRECTOR CHECK REPORT',
+	'8' => 'INSPECTION CLEARANC CERTIFICATE',
+	'9' => 'FINAL PACKING LIST',
+	'10'=> 'INVOICE',
+	'11'=> 'CHALLAN'
+);
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,187 +66,26 @@ $po_number =$_SESSION['po_number'];
 				</div>
 
 				<div class="panel-group" id="accordion">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-								PURCHASE ORDER SCAN </a>
-							</h4>
-						</div>
-						<div id="collapse1" class="panel-collapse collapse in">
-							<div class="panel-body">
-								PO Order Files
+			
+					<?php foreach($stages_name as $key=>$value){
+					?>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$stages[$key]?>">
+									<?php echo $value?></a>
+								</h4>
+							</div>
+							<div id="<?php echo $stages[$key]?>" class="panel-collapse collapse <?php if($key==1){echo 'in';}?>">
+								<div class="panel-body">
+									<button class="btn btn-primary" name="<?php echo $stages[$key]?>">+ Add file</button>
 
-
-
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php }?>
 
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-								PRODUCTION RECORD (INPROCESS)</a>
-							</h4>
-						</div>
-						<div id="collapse2" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-								PRODUCTION RECORD FILES
-
-							</div>
-						</div>
-					</div>
-
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-								ROUTINE TEST REPORT</a>
-							</h4>
-						</div>
-						<div id="collapse3" class="panel-collapse collapse">
-							<div class="panel-body">
-								TEST REPORTS
-
-
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-								CALL LETTER</a>
-							</h4>
-						</div>
-						<div id="collapse4" class="panel-collapse collapse">
-							<div class="panel-body">
-								CALL LETTER
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-								SAMPLING PLAN</a>
-							</h4>
-						</div>
-						<div id="collapse5" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-								ACCEPTANCE TEST REPORT</a>
-							</h4>
-						</div>
-						<div id="collapse6" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-								DIRECTOR TEST CHECK REPORT</a>
-							</h4>
-						</div>
-						<div id="collapse7" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
-								INSPECTION CLEARANCE CERTIFICATE</a>
-							</h4>
-						</div>
-						<div id="collapse8" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
-								DISPATCH CLERANCE</a>
-							</h4>
-						</div>
-						<div id="collapse9" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse10">
-								FINAL PACKING LIST</a>
-							</h4>
-						</div>
-						<div id="collapse10" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse11">
-								INVOICE</a>
-							</h4>
-						</div>
-						<div id="collapse11" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse12">
-								CHALLAN</a>
-							</h4>
-						</div>
-						<div id="collapse12" class="panel-collapse collapse">
-							<div class="panel-body">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-			<button class="btn btn-primary" onclick="document.location.href='index.php'" style="margin: auto; display: block; margin-bottom: 20px;"> GO TO HOME PAGE</button>
+			<button class="btn btn-primary" onclick="document.location.href='index.php'" style="margin: auto; display: block; margin-bottom: 20px; margin-top: 20px;"> GO TO HOME PAGE</button>
 		</div>
 
 	</div>
