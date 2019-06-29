@@ -20,18 +20,18 @@
 </head>
 <body>
 	<div class="container">
-<center><h1>RECORD MANAGEMENT SYSTEM</h1></center>
-<div class="row">
-	<div class="col-md-4">
-		<button class="btn btn-info">CREATE NEW RECORDS</button> 
-	</div>
-	<div class="col-md-4">
-		<button class="btn btn-success">VIEW RECORDS</button> 
-	</div>
-	<div class="col-md-4">
-		<button class="btn btn-primary">UPDATE RECORDS</button> 
-	</div>
-	
-</div>
-</body>
-</html>
+                <center><h1>RECORD MANAGEMENT SYSTEM</h1></center>
+                <div class="row">
+                       <div class="col-md-4">
+                              <button class="btn btn-info">CREATE NEW RECORDS</button> 
+                      </div>
+                      <div class="col-md-4">
+                              <button class="btn btn-success">VIEW RECORDS</button> 
+                      </div>
+                      <div class="col-md-4">
+                              <button class="btn btn-primary">UPDATE RECORDS</button> 
+                      </div>
+                      
+              </div>
+      </body>
+      </html>
