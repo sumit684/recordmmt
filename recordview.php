@@ -3,8 +3,10 @@
 require 'config.php';
 global $po_number;
 global $po_date;
+global $id;
 $po_date = $_SESSION['po_date'];
 $po_number =$_SESSION['po_number'];
+$id=$po_number."_".$po_date;
 $stages = array(
 	'1' => '1_PO_SCAN_COPY',
 	'2' => '2_PRODUCTION_RECORD',
@@ -76,45 +78,52 @@ $stages_name =array(
 										<?php echo $value?></a>
 									</h4>
 								</div>
+
 								<div id="<?php echo $stages[$key]?>" class="panel-collapse collapse <?php if($key==1){echo 'in';}?>">
 									<div class="panel-body">
 										
-										<button type="button" class="btn btn-info" data-toggle="modal" data-target="<?php echo '#'.$stages[$key].'_'.$key?>">+ Add File</button>
+										<button type="button" class="btn btn-info" data-toggle="modal" data-target="<?php echo '#'.$stages[$key].'_'.$key?>" id="btn_<?php echo $stages[$key]?>">+ Add File</button>
+										<?php
+										$filelist = glob('uploads/records/$id/*');
+										echo "uploads/records/$id/$stages[$key]/*";
+										foreach ($filelist as $filename) {
+										echo $filename."<br>";
+										}
+										?>
+									<!-- Modal -->
+									<div id="<?php echo $stages[$key].'_'.$key?>" class="modal fade" role="dialog">
+										<div class="modal-dialog">
 
-										<!-- Modal -->
-										<div id="<?php echo $stages[$key].'_'.$key?>" class="modal fade" role="dialog">
-											<div class="modal-dialog">
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title">File Upload Details</h4>
+												</div>
+												<div class="modal-body">
+													<!-- Form -->
+													<form method='post' action='' enctype="multipart/form-data">
+														Select file : <input type='file' name='file[]' id='file' class='form-control' multiple><br>
+														<input type='button' class='btn btn-info' value='Upload' id='upload'>
+													</form>
 
-												<!-- Modal content-->
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal">&times;</button>
-														<h4 class="modal-title">File upload form</h4>
-													</div>
-													<div class="modal-body">
-														<!-- Form -->
-														<form method='post' action='' enctype="multipart/form-data">
-															Select file : <input type='file' name='file[]' id='file' class='form-control' multiple><br>
-															<input type='button' class='btn btn-info' value='Upload' id='upload'>
-														</form>
-
-														<!-- Preview-->
-														<div id='preview'></div>
-													</div>
-
+													<!-- Preview-->
+													<div id='preview'></div>
 												</div>
 
 											</div>
+
 										</div>
 									</div>
 								</div>
 							</div>
-						<?php }?>
+						</div>
+					<?php }?>
 
-						<button class="btn btn-primary" onclick="document.location.href='index.php'" style="margin: auto; display: block; margin-bottom: 20px; margin-top: 20px;"> GO TO HOME PAGE</button>
-					</div>
-
+					<button class="btn btn-primary" onclick="document.location.href='index.php'" style="margin: auto; display: block; margin-bottom: 20px; margin-top: 20px;"> GO TO HOME PAGE</button>
 				</div>
-			</body>
-			</html>
+
+			</div>
+		</body>
+		</html>
 
